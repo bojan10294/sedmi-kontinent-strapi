@@ -13,14 +13,16 @@ module.exports = ({ env }) => ({
   },
   upload: {
     config: {
-      provider: "strapi-provider-upload-do",
+      provider: 'cloudinary',
       providerOptions: {
-        key: env('DO_SPACE_ACCESS_KEY'),
-        secret: env('DO_SPACE_SECRET_KEY'),
-        endpoint: env('DO_SPACE_ENDPOINT'),
-        space: env('DO_SPACE_BUCKET'),
-        directory: env('DO_SPACE_DIRECTORY')
-      }
+        cloud_name: env('CLOUDINARY_NAME'),
+        api_key: env('CLOUDINARY_KEY'),
+        api_secret: env('CLOUDINARY_SECRET'),
+      },
+      actionOptions: {
+        upload: {},
+        delete: {},
+      },
     },
   }
 });
